@@ -44,7 +44,7 @@ struct Line {
     }
 
     Line parallel(const Point& p) {
-        return Line(A, -1, p.y - A * p.x);
+        return Line(A, B, -(B * p.y + A * p.x));
     }
 
     bool perpendicular(const Line& other) const {
@@ -52,7 +52,7 @@ struct Line {
     }
 
     Line perpendicular(const Point& p) {
-        return Line(-B,A, p.y - A * p.x);
+        return Line(-B,A,-(B * p.y + A * p.x));
     }
 
     void print(ostream& out) const {
